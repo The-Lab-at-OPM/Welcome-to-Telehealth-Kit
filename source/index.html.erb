@@ -13,75 +13,122 @@ return sticker
 Appointment card
 -->
 
-<article id="cover" class="skip">
+<article id="edit" class="sectionEdit hidden">
   <header>
-    <img src="/images/cover.jpg" alt=" ">
-    <h1>Home Telehealth Getting Started Kit</h1>
-  </header>
-</article>
-<article id="toc" class="skip">
-  <header>
-    <h1>Table of Contents</h1>
+    <div class="header-content">
+      <h1>Getting started kit modules</h1>
+    </div>
+    <svg viewBox="0 0 85 80"><use xlink:href="#va-seal"></use></svg>
   </header>
   <section>
-    <ol>
-      <li><a href="#welcome"><span class="keyword">Welcome</span> to telehealth</a></li>
-      <li><a href="#fimiliarize"><span class="keyword">Fimiliarize</span> yourself with your tablet</a></li>
-      <li><a href="#schedule"><span class="keyword">Schedule</span> and appointement</a></li>
-      <li><a href="#return"><span class="keyword">Return</span> instructions</a></li>
-      <li class="hidden sectionTelemental"><a href="#telemental"><span class="keyword">TeleMental Health</span> introduction</a></li>
-    </ol>
+    <div id="editModules"></div>
+    <div id="editURL"></div>
   </section>
 </article>
-<article id="welcome">
+<article id="getting-started-kit">
   <header>
-    <h1>Welcome to Home Telehealth</h1>
+    <div class="header-content">
+      <h1>Telehealth <strong>Getting Started Kit</strong></h1>
+    </div>
+    <svg viewBox="0 0 85 80"><use xlink:href="#va-seal"></use></svg>
   </header>
   <section>
-    <p>Welcome to Telehealth! Our goal is to provide Veterans with the right care, at the right place, and at the right time. Clinical Video Telehealth (CVT) aims to make the local community the preferred place of care whenever possible by bringing the best care to you. Telehealth provides Veterans with access to health care services from remote facilities, through the use of convenient and secure video conferencing technology. As a Veteran, you can now be connected to a healthcare provider in a different location with a real-time interaction. CVT provides great benefits and access to the best healthcare without having to make long trips to see your medical provider(s) in person.</p>
-    <p>This Telehealth Getting Started Kit is designed to help guide you through the initial steps of the onboarding process. Once your device (tablet) arrives, please complete the items on the checklist. This will prepare you for first of many Telehealth appointments.</p>
-
-    <p>Your provider is <span class="editable" id="providerName"></span> at the <span class="editable" id="providerFacility"></span> VA facility and can be reached at <span class="editable" id="providerContact"></span>.</p>
+    <p>Welcome to Telehealth! Our goal is to provide Veterans with the right care, at the right place, and at the right time. Clinical Video Telehealth (CVT) aims to make the Veteran’s local community the preferred place of care whenever possible by bringing the best health care services to Veterans in distributed (and often remote) locations through the use of convenient and secure video conferencing technology.</p>
+    <p>As a Veteran, you can now be connected to your VA health care provider in a virtual and real-time interaction. Telehealth provides great benefits and access to the best health care without having to make long trips to see your providers in person.</p>
+    <p>This Telehealth Getting Started Kit is designed to help guide you through the initial steps of the onboarding process. A tablet is being shipped to you. Once it arrives, please complete the items on the checklist.</p>
+    <p>Thank you for your participation in the Telehealth program. VA providers are committed to serving your health care needs in the most effective way possible. We want you to feel your best!</p>
 
   </section>
 </article>
-<article id="fimiliarize">
+<article id="checklist">
   <header>
-    <h1>Fimiliarize yourself with telehealth</h1>
+    <div class="header-content">
+      <h1>Getting started <strong>Checklist</strong></h1>
+      <p>This guide will prepare you for your telehealth appointments. We want you to feel comfortable as you connect with your provider using technology.  VHA is committed to serving your healthcare needs the best way possible!</p>
+    </div>
+    <svg viewBox="0 0 85 80"><use xlink:href="#va-seal"></use></svg>
   </header>
   <section>
     <ul class="checklist">
-      <li><a href="mailto:provider@va.gov">Notify your provider</a> right away, that your device (tablet) has arrived</li>
-      <li>Schedule your first appointment **</li>
-      <li>Complete the enclosed appointment card with your appointment details</li>
-      <li>Familiarize yourself with the device (charging, power on/off, volume, password/login) </li>
-      <li>Familiarize yourself with the applications on the device </li>
-      <p>*If you require technical support, please contact the Telehealth Technology Help Desk at 1-866-651-3180 (7AM-11PM ET Monday through Saturday)</p>
-      <p>Thank you for your participation in the Telehealth program! (What would providers want this thank you section to include?)</p>
+
+      <li>Contact the Help Desk right away to let them know your tablet has arrived. They will conduct a test to make sure that everything works properly
+        <ul>
+          <li>National Telehealth Technology Help Desk 1-866-651-3180<br>
+          (7 AM – 11 PM ET Monday through Saturday)</li>
+        </ul>
+      </li>
+      <li>Store the shipping box and the documents that came with it. You will use this box to return the tablet when you no longer need it.</li>
+      <li>Schedule your first appointment by contacting your scheduler at <span class="editable"></span></li>
+      <li>Complete the enclosed appointment card or add the appointment to your calendar to help you remember the appointment details.
+        <ul>
+          <li>On the day of your first appointment, you will also receive an email reminder, which will include a link. </li>
+          <li>5 minutes before the appointment time, click on the link and wait for the provider to join you.</li>
+          <li>If you run into any technical difficulties, contact the Help Desk:<br>
+          National Telehealth Technology Help Desk 1-866-651-3180 <br>
+          (7 AM – 11 PM ET Monday through Saturday)</li>
+          <li>If you need to change or cancel your appointment, contact your scheduler at the number above.</li>
+        </ul>
+      </li>
+      <li>Familiarize yourself with the tablet. Please refer to the <em>Instructions for Tablet</em> document that comes with your tablet.</li>
+      <li>Familiarize yourself with the applications (software) on the tablet. The VA applications you need for Telehealth have been pre-loaded. No other applications can be added to the tablet.</li>
     </ul>
   </section>
 </article>
-<article id="schedule">
+<article id="appointment" class="card">
+  <section class="card-content">
+    <h1>Telehealth appointment card</h1>
+    <p>My appointment with <span class="editable" title="Doctor, nurse, or depeartment name"></span> is scheduled for: <span class="editable" title="Date of appointment"></span> at <span class="editable" title="Time of appointment"></span>. I talked to <span class="editable" title="Name of Scheduler (if you asked)"></span> to schedule this appointment.</p>
+  </section>
+  <aside class="card-aside">
+    <p>Please use this appointment card to note the time and day of your upcoming appointment.</p>
+    <small>
+      <p>Check your email on the day of your appointment to find the link to your telehealth room.</p>
+      <p>Please remember to click the link 5 minutes before your appointment time.</p>
+    </small>
+    <svg viewBox="0 0 85 80"><use xlink:href="#va-seal"></use></svg>
+  </aside>
+</article>
+<article id="returning">
   <header>
-    <h1>Scheduling an appointment</h1>
+    <div class="header-content">
+      <h1><strong>Returning</strong> your tablet</h1>
+    </div>
+    <svg viewBox="0 0 85 80"><use xlink:href="#va-seal"></use></svg>
   </header>
   <section>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem aliquam eveniet minima quaerat hic tempore voluptates incidunt at nobis. Praesentium dignissimos pariatur hic iste cum voluptate rerum ratione explicabo quis.</p>
+    <p>Please remember that the tablet is Federal property and you are responsible for returning it when you are no longer participating in video consults with your provider. </p>
+    <p>You are also responsible for maintaining the tablet in its current condition which will allow it to be used by other Veterans in the future. </p>
+    <p>Options for returning the tablet:</p>
+    <ul>
+      <li>You can bring the tablet to your local VA facility with the original shipping box. They will help get it sent back.</li>
+      OR
+      <li>You can use the original shipping box and the pre-paid shipping label (enclosed in the original shipping box) to send the tablet back yourself.</li>
+    </ul>
   </section>
 </article>
-<article id="return">
+<article id="telemental" class="sectionTelemental hidden">
   <header>
-    <h1>Returning your tablet</h1>
+    <div class="header-content">
+      <h1>Getting started with <strong>Telemental</strong></h1>
+    </div>
+    <svg viewBox="0 0 85 80"><use xlink:href="#va-seal"></use></svg>
   </header>
   <section>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem aliquam eveniet minima quaerat hic tempore voluptates incidunt at nobis. Praesentium dignissimos pariatur hic iste cum voluptate rerum ratione explicabo quis.</p>
+    <p>Telemedicine, also known as telehealth, uses electronic communications and information technology to provide and support healthcare when distance separates patients from the clinician (1). Telemedicine uses various communication methods to connect clinicians and patients in lieu of their meeting in person.</p>
+    <p>The term "telemental health services" typically refers to behavioral health services that are provided using communication technology. These services include clinical assessment, individual and group psychotherapy, psycho-educational interventions, cognitive testing, and general psychiatry. The term telemental health describes the overall situation in which a clinician uses various technologies to deliver mental health care to a patient who is miles away.</p>
+    <p>The major benefit of telemental health is that it eliminates travel that may be disruptive or costly. In addition, telemental health is a useful tool in situations, such as in correctional and forensic settings, where it is difficult to transport the patient to a clinician. Telemental health also allows mental health providers to consult with or provide supervision to one another.</p>
   </section>
 </article>
-<article id="telemental" class="hidden sectionTelemental">
+<article id="move" class="sectionMove hidden">
   <header>
-    <h1>Introduction to TeleMental Health</h1>
+    <div class="header-content">
+      <h1>Getting started with <strong>MOVE!</strong></h1>
+    </div>
+    <svg viewBox="0 0 85 80"><use xlink:href="#va-seal"></use></svg>
   </header>
   <section>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem aliquam eveniet minima quaerat hic tempore voluptates incidunt at nobis. Praesentium dignissimos pariatur hic iste cum voluptate rerum ratione explicabo quis.</p>
+    <p>Welcome to the MOVE! Weight Management Program, supported by VA's National Center for Health Promotion and Disease Prevention (NCP). We at NCP are proud to make this program available to our Veterans. Now in its second decade, MOVE! includes the most up-to-date approaches for weight management. Please explore our website to learn more about MOVE!</p>
+    <p>What is MOVE!?  MOVE! is a weight management, health promotion program designed to improve the lives of Veterans. MOVE!’s core ideas—encouraging healthy eating behavior, increasing physical activity, and promoting even small weight losses—are easy to follow and based on the latest in nutrition science. With the help of your MOVE! care team, you can reduce health risks, prevent or reverse certain diseases, improve your quality of life, and even live longer!</p>
+    <p>If you would like to learn more about how MOVE! has helped thousands of Veterans achieve those goals, make sure to read our <a href="https://www.move.va.gov/MOVE/SuccessStories">MOVE! Success Stories</a>.</p>
   </section>
 </article>

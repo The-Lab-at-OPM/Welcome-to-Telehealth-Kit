@@ -1,34 +1,42 @@
-@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700|Source+Sans+Pro:400,400i,700');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300,400,700|Source+Sans+Pro:400,400i,700');
 
 
-$ui-font: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir", "Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans", "Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu", "Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif;
-$txt-font: 'Merriweather', Georgia, serif;
+$sans: 'Source Sans Pro', sans-serif;
+$serif: 'Merriweather', Georgia, serif;
+
+$transition: all .2s ease;
 
 $max-width: 50rem;
+$nav-height: 3.5rem;
+$break: 900px;
+
 $primary-color: #00aeef;
+// $primary-color: #007DA3; // color contrast AA
+// $primary-color: #005E7A; // color contrast AAA
 
 body {
-  font-family: $ui-font;
-  padding: 0;
+  font-family: $sans;
+  padding: 0 0 $nav-height;
   margin: 0;
-  // padding: 3%;
-  line-height: 1.4;
+  line-height: 1.5;
   font-size: 120%;
+  @media print {
+    font-size: 10pt;
+    line-height: 1.4;
+  }
 }
 * {
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
+  color-adjust: exact;
 }
 
 h1, h2, h3, h4, h5 {
   page-break-after: avoid;
-  line-height: 1;
-  margin: 1rem 0;
-  padding: 0;
 }
 
 p {
-
+  page-break-after: avoid;
 }
 
 h1, h2, h3, h4, h5, p, li,
@@ -40,10 +48,21 @@ figure {
 }
 
 a {
-  color: var(--color);
+  color: $primary-color;
   @media print {
     text-decoration: none;
     color: inherit;
+  }
+}
+
+ul {
+  list-style: disc;
+  &:not(.checklist) {
+    color: $primary-color;
+    font-style: italic;
+    li {
+      margin: .25em 0;
+    }
   }
 }
 
@@ -54,24 +73,42 @@ a {
 .editable {
   display: inline-block;
   border-bottom: 2px dotted;
+  transition: $transition;
+  line-height: 1;
+  position: relative;
+  height: 1em;
   &:empty {
     width: 5em;
     border-bottom-style: solid;
     &:before {
       content: 'click to edit';
-      font-family: $ui-font;
+      font-family: $sans;
       font-size: 10px;
-      pointer-events: none;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: .25em;
+      text-align: center;
     }
     &:focus:before {
       display: none;
     }
+    &:after {
+      content: attr(title);
+      position: absolute;
+      font-size: .3em;
+      left: 0;
+      right: 0;
+      top: 4em;
+      text-align: center;
+    }
   }
   &:hover,
   &:focus {
-    border-color: var(--color);
+    border-color: $primary-color;
   }
   @media print {
+    border-bottom: none;
     &:empty {
       border-bottom: 1px solid;
       width: 12em;
@@ -97,7 +134,7 @@ a {
     input[type='checkbox'] {
       display: none;
     }
-    li:before {
+    > li:before {
       content: '☐';
       font-size: 2em;
       position: absolute;
@@ -109,62 +146,161 @@ a {
 
 ////////////////////////////////////////////
 
-article {
-  font-family: $txt-font;
-  page-break-after: always;
-  min-height: 100vh;
+nav {
+  position: fixed;
+  display: flex;
+  background: #fff;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0;
+  border-bottom: 2px solid $primary-color;
   overflow: hidden;
-  --color: $primary-color;
+  font-family: $serif;
+  z-index: 1;
+  font-size: .83333em;
+  font-weight: 300;
+  a {
+    display: block;
+    padding: 1em;
+    position: relative;
+    transition: $transition;
+    text-decoration: none;
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-color: $primary-color;
+      transform: translateY(100%);
+      transition: $transition;
+      z-index: -1;
+    }
+    &.active {
+      &:before {
+        transform: translateY(90%);
+      }
+    }
+    &:hover {
+      color: #fff;
+      &:before {
+        transform: translateY(0%);
+      }
+    }
+  }
+  @media (max-width: $break) {
+    flex-direction: column;
+    position: static;
+    a {
+      padding: .5em 1em;
+    }
+    a:hover {
+      color: $primary-color;
+    }
+    a:before {
+      display: none;
+    }
+  }
+  @media print {
+    display: none;
+  }
+}
+.menu {
+  position: fixed;
+  background: $primary-color;
+  color: #fff;
+  top: 0;
+  right: 0;
+  width: 34px;
+  height: 34px;
+  border: 8px solid $primary-color;
+  z-index: 2;
+  @media (min-width: $break) {
+    display: none;
+  }
+  @media print {
+    display: none;
+  }
+}
+
+////////////////////////////////////////////
+
+article {
+  page-break-after: always;
+  overflow: hidden;
+  @media (min-width: $break) {
+    min-height: calc(100vh - #{$nav-height * 2});
+    border-top: $nav-height solid #fff;
+  }
   &:not(.skip) {
     counter-increment: section;
   }
-  &:last-child {
-    page-break-after: auto;
+  body.edit & {
+    display: block;
   }
 }
 
 header {
-  background-color: var(--color);
+  background-color: $primary-color;
   color: #fff;
-  margin: 0 0 1rem;
-  padding: 10vw 3vw 0;
+  margin: 0 0 5vw;
+  padding: 10vw 5vw 5vw;
   overflow: hidden;
-  > * {
-    display: block;
-    max-width: $max-width;
-    margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  svg {
+    max-width: calc(60px + 8vw);
+    min-width: calc(60px + 8vw);
+    padding-left: 5vw;
   }
   @media print {
-    padding: 10vw .5in 0;
+    padding: 50pt 50pt 30pt;
+    color: inherit;
+    background: none;
+    border-bottom: 2pt solid $primary-color;
+  }
+}
+.header-content {
+  p {
+    max-width: 40rem;
   }
 }
 
 section {
   max-width: $max-width;
   margin: 0 auto;
-  padding: 0 3vw 10vw;
+  padding: 0 5vw 10vw;
   @media print {
-    padding: 0 .5in;
+    margin: 0;
+    padding: 0 50pt;
+    max-width: 336pt;
   }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $serif;
+  line-height: 1.2;
+  margin: 1rem 0;
+  padding: 0;
 }
 
 h1 {
   font-weight: 300;
   font-size: calc(16px + 2vw);
-  margin-bottom: 1em;
+  margin: .2em 0;
+  strong {
+    font-weight: 700;
+  }
   @media print {
-    font-weight: 500;
+    font-size: 28pt;
   }
-  article:not(.skip) &:before {
-    content: 'section ' counter(section);
-    display: block;
-    font-family: $ui-font;
-    text-transform: uppercase;
-    font-size: .8rem;
-    letter-spacing: .2em;
-    font-weight: 400;
-    margin-bottom: .6em;
-  }
+}
+
+svg {
+  fill: currentColor;
 }
 
 .print {
@@ -175,6 +311,8 @@ h1 {
   height: 10vw;
   max-width: 200px;
   max-height: 200px;
+  min-width: 70px;
+  min-height: 70px;
   background-color: hsl(50deg,100%,60%);
   border: 2px solid #fff;
   color: hsl(50deg,100%,20%);
@@ -182,6 +320,8 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: $transition;
+  box-shadow: 0 0 0 0 hsl(50deg,100%,50%);
   &:hover {
     color: hsl(50deg,100%,2%);
     box-shadow: 0 0 12px 2px hsl(50deg,100%,50%);
@@ -192,7 +332,7 @@ h1 {
   svg {
     width: 50%;
     fill: currentColor;
-    transition: transform .2s ease;
+    transition: $transition;
   }
   @media print {
     display: none;
@@ -204,74 +344,79 @@ h1 {
 
 ////////////////////////////////////////////
 
-#cover {
-  header {
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    position: relative;
+.card {
+  min-height: auto;
+  margin: 5vw auto;
+  @media screen {
+    background-color: #eee;
+
   }
-  h1 {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    font-size: 8vw;
-    width: 80%;
-    max-width: none;
-    text-shadow: .1vw .1vw 1.5vw darken($primary-color,15%);
-    @media print {
-      font-size: 42pt;
+  @media print {
+    width: 7in;
+    height: 5in;
+    border: 1px dashed #ddd;
+    overflow: hidden;
+    display: flex;
+    font-size: 10pt;
+    line-height: 1.5;
+    padding: 0;
+    section {
+      margin: 0;
+      max-width: none;
     }
   }
-  img {
-    width: 100vw;
-    height: 100vh;
+  h1 {
+    color: $primary-color;
+    font-weight: 700;
+    font-size: 34pt;
+  }
+  small {
+    font-style: italic;
+    line-height: 1.2;
+  }
+  .editable:empty {
+    width: 8em;
+  }
+}
+.card-content {
+  padding: 24pt;
+  p {
+    font-size: 16pt;
+    line-height: 3;
+  }
+}
+.card-aside {
+  position: relative;
+  background-color: $primary-color;
+  color: #fff;
+  padding: 18pt 24pt;
+  svg {
     display: block;
-    max-width: none;
-    object-fit: cover;
-    filter: blur(1vw);
-    opacity: .3;
+    width: 72pt;
+  }
+  @media print {
+    min-width: 70pt;
+    max-width: 70pt;
+    color: inherit;
+    background: none;
+    border-left: 2pt solid $primary-color;
+    svg {
+      position: absolute;
+      bottom: 36pt;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+    }
   }
 }
 
-#toc {
-  counter-reset: toc;
-  ol {
-    list-style: none;
-    margin: 1em 0;
-    padding: 0;
-    font-size: calc(16px + 1.6vw);
-    font-weight: 500;
+#edit {
+  label {
+    display: block;
+    margin: .5em 0;
   }
-  li {
-    counter-increment: toc;
-    line-height: 1;
-    &:empty {
-      display: none;
-    }
-    &:before {
-      content: 'section ' counter(toc);
-      display: block;
-      font-family: $ui-font;
-      text-transform: uppercase;
-      font-size: .8rem;
-      letter-spacing: .2em;
-      font-weight: 400;
-      margin: 2em 0 .2em;
-    }
-  }
-  .keyword {
-    color: var(--color);
-    font-weight: 600;
-  }
-  a {
-    text-decoration: none;
-    color: inherit;
-    &:hover {
-      text-decoration: underline var(--color);
-    }
+  @media print {
+    display: none;
   }
 }
 
@@ -280,6 +425,24 @@ h1 {
 @page {
   size: letter portrait;
   margin: 24pt;
+  @top-left {
+    content: '';
+  }
+  @top {
+    content: '';
+  }
+  @top-right {
+    content: '';
+  }
+  @bottom-left {
+    content: '';
+  }
+  @bottom {
+    content: '';
+  }
+  @bottom-right {
+    content: '';
+  }
 }
 
 @media print {
