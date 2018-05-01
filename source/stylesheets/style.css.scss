@@ -57,8 +57,10 @@ a {
 ul {
   list-style: disc;
   &:not(.checklist) {
-    color: $primary-color;
     font-style: italic;
+    @media screen {
+      color: $primary-color;
+    }
     li {
       margin: .25em 0;
     }
