@@ -9,7 +9,7 @@ $transition: all .2s ease;
 $max-width: 50rem;
 $break: 900px;
 
-$primary-color: #00aeef;
+$primary-color: #0071bc;
 // $primary-color: #007DA3; // color contrast AA
 // $primary-color: #005E7A; // color contrast AAA
 
@@ -262,7 +262,7 @@ header {
     padding: 50pt 50pt 30pt;
     color: inherit;
     background: none;
-    border-bottom: 2pt solid $primary-color;
+    border-bottom: 2pt solid;
   }
 }
 .header-content {
