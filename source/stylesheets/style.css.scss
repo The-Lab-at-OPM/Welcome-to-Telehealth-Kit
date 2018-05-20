@@ -370,6 +370,9 @@ svg {
     color: $primary-color;
     font-weight: 700;
     font-size: 34pt;
+    @media print{
+      color: inherit;
+    }
   }
   small {
     font-style: italic;
@@ -404,7 +407,7 @@ svg {
     max-width: 70pt;
     color: inherit;
     background: none;
-    border-left: 2pt solid $primary-color;
+    border-left: 2pt solid;
     flex-direction: column;
   }
 }
