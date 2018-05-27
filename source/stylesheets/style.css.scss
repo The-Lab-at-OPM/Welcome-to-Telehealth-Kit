@@ -67,6 +67,55 @@ ul {
   }
 }
 
+$numbered-section-size: 1.5em;
+.numbered-section {
+  font-family: $sans;
+  color: $primary-color;
+  font-size: 1.2em;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  &:before {
+    content: counter(numbered-section);
+    border: 2px solid;
+    background-color: #fff;
+    border-radius: 50%;
+    width: $numbered-section-size;
+    height: $numbered-section-size;
+    position: absolute;
+    left: (($numbered-section-size * -1) - 1em);
+    top: (($numbered-section-size - 1em) / -2);
+    line-height: $numbered-section-size;
+    text-align: center;
+    letter-spacing: 0;
+    counter-increment: numbered-section;
+  }
+  &-start {
+    counter-reset: numbered-section;
+  }
+  @media print {
+    color: inherit;
+    font-size: 12pt;
+  }
+}
+
+.sectioned-list {
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: $primary-color;
+    top: .5em;
+    bottom: 0;
+    left: 1px;
+    @media print {
+      background-color: currentColor;
+      left: 10pt;
+    }
+  }
+}
+
 .hidden {
   display: none;
 }
@@ -134,6 +183,9 @@ ul {
   @media print {
     input[type='checkbox'] {
       display: none;
+    }
+    > li {
+      margin-left: 3em;
     }
     > li:before {
       content: '☐';
