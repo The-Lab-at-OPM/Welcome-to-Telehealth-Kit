@@ -1,6 +1,6 @@
 # Telehealth Getting Started Kit
 
-This is the prototype for the Telehealth Getting Started Kit. It’s built with [Middleman](https://middlemanapp.com/) but can and should be built and used with a content management system. You can view [the latest build on staging](http://telehealth-welcome.s3-website-us-east-1.amazonaws.com/).
+This is the prototype for the Telehealth Getting Started Kit. It’s built with [Middleman](https://middlemanapp.com/) but can and should be built and used with a content management system. You can view the latest build on staging via anatecture. 
 
 ## Development
 
