@@ -1,6 +1,6 @@
-# Telehealth Getting Started Kit
+# Welcome to Telehealth Kit
 
-This is the prototype for the Telehealth Getting Started Kit. It’s built with [Middleman](https://middlemanapp.com/) but can and should be built and used with a content management system. You can view the latest build on staging via anatecture. 
+This is the prototype for the Welcome to Telehealth Kit. It’s built with [Middleman](https://middlemanapp.com/) but can and should be built and used with a content management system. You can view the latest build on staging via anatecture. 
 
 ## Development
 
@@ -26,7 +26,7 @@ Scripts are in `/source/javascripts/script.js`.
 
 ### URL features
 
-This getting started kit can contain an array of content modules, not all of which are visible by default. To see a list of all content modules add `/?edit` to the URL and you can see all modules and customize the URL for the user.
+This Welcome to Telehealth Kit can contain an array of content modules, not all of which are visible by default. To see a list of all content modules add `/?edit` to the URL and you can see all modules and customize the URL for the user.
 
 ### HTML Structure and special features
 
