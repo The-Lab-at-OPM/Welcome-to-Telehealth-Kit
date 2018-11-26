@@ -67,6 +67,32 @@ ul {
   }
 }
 
+ul-normal {
+  list-style: disc;
+  &:not(.checklist) {
+    font-style: normal;
+    @media screen {
+    }
+    li {
+      margin: .25em 0;
+    }
+  }
+}
+
+ul-inset {
+  list-style: disc;
+  &:not(.checklist) {
+    font-style: normal;
+    @media screen {
+    }
+    li {
+      margin: .25em 0;
+    }
+  }
+}
+
+
+
 $numbered-section-size: 1.5em;
 .numbered-section {
   font-family: $sans;
@@ -100,6 +126,23 @@ $numbered-section-size: 1.5em;
 }
 
 .sectioned-list {
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: $primary-color;
+    top: .5em;
+    bottom: 0;
+    left: 1px;
+    @media print {
+      background-color: currentColor;
+      left: 10pt;
+    }
+  }
+}
+
+.numbered-list {
   position: relative;
   &:before {
     content: '';
