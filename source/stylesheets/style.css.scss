@@ -97,8 +97,9 @@ ul {
   }
   li {
     margin: .25em 0;
+    }
   }
-}}
+}
 
 
 $numbered-section-size: 1.5em;
@@ -390,7 +391,7 @@ section {
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h6 {
   font-family: $serif;
   line-height: 1.2;
   margin: 1rem 0;
@@ -407,6 +408,13 @@ h1 {
   @media print {
     font-size: 28pt;
   }
+}
+
+h5 {
+  font-family: $serif;
+  line-height: .5;
+  margin: 1rem 0;
+  padding: 0;
 }
 
 svg {

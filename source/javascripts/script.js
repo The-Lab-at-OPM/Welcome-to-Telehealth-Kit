@@ -92,7 +92,7 @@ function toc() {
   for (var i = 0; i < sections.length; i++) {
     var section = sections[i];
     var id = section.getAttribute('id');
-    var title = section.querySelector('h1').innerHTML;
+    var title = section.querySelector('h2').innerHTML;
     ihtml = ihtml + '<a href="#' + id + '">' + title + '</a>';
   }
   document.getElementById('nav').innerHTML = ihtml;
