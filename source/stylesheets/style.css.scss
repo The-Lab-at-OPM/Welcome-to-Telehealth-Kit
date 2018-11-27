@@ -67,10 +67,20 @@ ul {
   }
 }
 
-ul-normal {
+.blank-line {
   list-style: disc;
   &:not(.checklist) {
     font-style: normal;
+    @media screen {
+    }
+  }
+}
+
+.inset {
+  list-style: disc;
+  &:not(.checklist) {
+    font-style: normal;
+    margin-left: 5em;
     @media screen {
     }
     li {
@@ -79,18 +89,16 @@ ul-normal {
   }
 }
 
-ul-inset {
-  list-style: disc;
-  &:not(.checklist) {
-    font-style: normal;
-    @media screen {
-    }
-    li {
-      margin: .25em 0;
-    }
+.normal {list-style: disc;
+&:not(.checklist) {
+  font-style: normal;
+  color: black;
+  @media screen {
   }
-}
-
+  li {
+    margin: .25em 0;
+  }
+}}
 
 
 $numbered-section-size: 1.5em;
